@@ -21,11 +21,11 @@
 \begin{document}
 
 \begin{center}
-{\fontsize{16pt}{16pt}\selectfont Document Title}
+    {\Large Document Title}
 \end{center}
 
 \begin{flushright}
-Name
+    Name
 \end{flushright}
 
 \section{Section}
@@ -34,9 +34,31 @@ Name
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-これは日本語の文章です。表\ref{SampleTable}を参照。図\ref{SampleFigure1}を参照。
+表\ref{SampleTable}を参照。図\ref{SampleFigure}を参照。式(\ref{expr})を参照。\\インライン数式。$ 1 + 1 = 1 $ である (これは嘘)。
 
-\begin{table}[h]
+
+\begin{equation}
+    \label{expr}
+    x^2 + 2x + 4 = 0
+\end{equation}
+
+\begin{displaymath}
+    x^2 + 2x + 4 = 0
+\end{displaymath}
+
+\begin{eqnarray}
+    x ^ 2 + 4x + 4 &=& 0 \nonumber \\
+    (x + 2) ^ 2 &=& 0 \nonumber \\
+    x &=& -2
+\end{eqnarray}
+
+\begin{eqnarray*}
+    x ^ 2 + 4x + 4 &=& 0 \\
+    (x + 2) ^ 2 &=& 0 \\
+    x &=& -2
+\end{eqnarray*}
+
+\begin{table}[ht]
     \caption{Caption}
     \label{SampleTable}
     \centering
@@ -55,15 +77,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     \centering
     \includegraphics[width=10cm]{trp.png}
     \caption{Picutre}
-    \label{SampleFigure1}
-\end{figure}
-
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=10cm]{trp.png}
-    \caption{Picutre}
-    \label{SampleFigure2}
+    \label{SampleFigure}
 \end{figure}
 
 \end{document}
