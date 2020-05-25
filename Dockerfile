@@ -24,14 +24,14 @@ RUN tlmgr install \
     collection-latexrecommended \
     collection-fontsrecommended \
     collection-langjapanese \
-    latexmk \
     lastpage
 
 RUN rm -rf ~/*
 
 RUN printf "%s\n" \
     "#!/usr/bin/env sh" \
-    "ptex2pdf -u -l -ot '-synctex=1' -od '-f uptex-ipaex.map' doc.tex" \
+    "ptex2pdf -u -l doc > /dev/null" \
+    "ptex2pdf -u -l doc > /dev/null" \
     > /start.sh && \
     chmod +x /start.sh
 
