@@ -15,11 +15,8 @@
 \renewcommand{\headrulewidth}{0pt}
 
 % 式番号
-\makeatletter
-    \renewcommand{\theequation}{
-    \thesection.\arabic{equation}}
-    \@addtoreset{equation}{section}
-\makeatother
+\usepackage{amsmath}
+\numberwithin{equation}{section}
 
 % Section Font Size
 \usepackage{titlesec}
@@ -72,4 +69,3 @@
         \label{#3}
     \end{figure}
 }
-
