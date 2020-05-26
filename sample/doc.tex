@@ -12,24 +12,41 @@
 \renewcommand{\headrulewidth}{0pt}
 
 % 式番号
-% \makeatletter
-%     \renewcommand{\theequation}{%
-%     \thesection.\arabic{equation}}
-%     \@addtoreset{equation}{section}
-% \makeatother
+\makeatletter
+    \renewcommand{\theequation}{
+    \thesection.\arabic{equation}}
+    \@addtoreset{equation}{section}
+\makeatother
+
+% Commands
+\newcommand{\Title}[1]{
+    \begin{center}
+        {\Large #1}
+    \end{center}
+}
+\newcommand{\Center}[1]{
+    \begin{center}
+        #1
+    \end{center}
+}
+\newcommand{\Right}[1]{
+    \begin{flushright}
+        #1
+    \end{flushright}
+}
+
+% Section Font Size
+\usepackage{titlesec}
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
 
 % 画像
 \usepackage{graphicx}
-
 \begin{document}
 
-\begin{center}
-    {\Large Document Title}
-\end{center}
-
-\begin{flushright}
-    Name
-\end{flushright}
+\Title{Document Title}
+\Right{Name}
 
 \section{Section}
 \subsection{Subsection}

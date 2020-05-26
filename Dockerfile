@@ -24,14 +24,15 @@ RUN tlmgr install \
     collection-latexrecommended \
     collection-fontsrecommended \
     collection-langjapanese \
-    lastpage
+    lastpage \
+    titlesec
 
 RUN rm -rf ~/*
 
 RUN printf "%s\n" \
     "#!/usr/bin/env sh" \
     "ptex2pdf -u -l doc > /dev/null" \
-    "ptex2pdf -u -l doc > /dev/null" \
+    "ptex2pdf -u -l doc" \
     > /start.sh && \
     chmod +x /start.sh
 
