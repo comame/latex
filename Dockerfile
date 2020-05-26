@@ -25,16 +25,20 @@ RUN tlmgr install \
     collection-fontsrecommended \
     collection-langjapanese \
     lastpage \
-    titlesec
+    titlesec \
+    multirow
 
 RUN rm -rf ~/*
 
 RUN printf "%s\n" \
     "#!/usr/bin/env sh" \
+    "cp /mystyle.sty ~/mystyle.sty" \
     "ptex2pdf -u -l doc > /dev/null" \
     "ptex2pdf -u -l doc" \
+    "rm ~/mystyle.sty" \
     > /start.sh && \
     chmod +x /start.sh
 
+COPY mystyle.sty /mystyle.sty
 
 CMD '/start.sh'

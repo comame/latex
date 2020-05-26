@@ -1,0 +1,75 @@
+% \documentclass[12pt]{ujarticle}
+
+\usepackage{float}
+\usepackage{multirow}
+
+% 余白
+\usepackage[top=20truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
+
+% ページ番号
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\lhead{} \chead{} \rhead{} \lfoot{} \cfoot{}
+\rfoot{\thepage\ / \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+
+% 式番号
+\makeatletter
+    \renewcommand{\theequation}{
+    \thesection.\arabic{equation}}
+    \@addtoreset{equation}{section}
+\makeatother
+
+% Section Font Size
+\usepackage{titlesec}
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+
+% コマンド
+\newcommand{\Title}[1]{
+    \begin{center}
+        {\Large #1}
+    \end{center}
+}
+\newcommand{\Center}[1]{
+    \begin{center}
+        #1
+    \end{center}
+}
+\newcommand{\Right}[1]{
+    \begin{flushright}
+        #1
+    \end{flushright}
+}
+
+% \begin{Table}{l|c|r}{caption}{label}
+%    item && item
+%    \hline \hline
+%    item && item
+% \end{Table}
+\newenvironment{Table}[3]{
+    \begin{table}[H]
+    \caption{#2}
+    \label{#3}
+    \centering
+    \begin{tabular}{#1}
+    \hline
+}{
+    \hline
+    \end{tabular}
+    \end{table}
+}
+
+% \Figure{filename}{caption}{label}{width}
+\usepackage[dvipdfmx]{graphicx}
+\newcommand{\Figure}[4]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#4]{#1}
+        \caption{#2}
+        \label{#3}
+    \end{figure}
+}
+
