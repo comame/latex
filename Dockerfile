@@ -28,17 +28,15 @@ RUN tlmgr install \
     titlesec \
     multirow
 
-RUN rm -rf ~/*
-
-RUN printf "%s\n" \
-    "#!/usr/bin/env sh" \
-    "cp /mystyle.sty ~/mystyle.sty" \
-    "ptex2pdf -u -l doc > /dev/null" \
-    "ptex2pdf -u -l doc" \
-    "rm ~/mystyle.sty" \
-    > /start.sh && \
-    chmod +x /start.sh
-
+COPY entrypoint.sh /entrypoint.sh
 COPY mystyle.sty /mystyle.sty
 
-CMD '/start.sh'
+RUN rm -rf ~/* \
+    && adduser -D user \
+    && chmod +x /entrypoint.sh
+
+USER user
+
+ENTRYPOINT [ "/entrypoint.sh" ]
+CMD [ "doc" ]
+VOLUME /home/user

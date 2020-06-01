@@ -1,6 +1,11 @@
 ## Usage
 
 ```
-# file name must be doc.tex
-docker run --rm -v path/to/dir:/root comameito/latex
+$ ls
+your-filename.tex
+
+$ docker run -v $(pwd):/home/user comameito/latex your-filename
+
+$ ls
+your-filename.tex your-filename.pdf your-filename.log
 ```
