@@ -2,6 +2,7 @@
 
 \usepackage{float}
 \usepackage{multirow}
+\usepackage{color}
 
 % 余白
 \usepackage[top=20truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
@@ -39,6 +40,10 @@
     \begin{flushright}
         #1
     \end{flushright}
+}
+\newcommand{\todo}[1]{
+    \PackageWarning{Todo}{Detection #1}
+    {\color{red} (TODO #1)}
 }
 
 % \begin{Table}{l|c|r}{caption}{label}
