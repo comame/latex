@@ -14,17 +14,16 @@ RUN printf "%s\n" \
         "tlpdbopt_install_docfiles 0" \
         "tlpdbopt_install_srcfiles 0" \
         > texlive.profile
-RUN $(find ./ -name "install-tl*" -type d)/install-tl -profile ~/texlive.profile; exit 0
+RUN $(find ./ -name "install-tl*" -type d)/install-tl -profile ~/texlive.profile ; exit 0
 
-ENV PATH $PATH:/usr/local/texlive/2020/bin/x86_64-linuxmusl
-
-RUN tlmgr install \
+RUN /usr/local/texlive/$(date +%Y)/bin/x86_64-linuxmusl/tlmgr install \
     collection-latexrecommended \
     collection-fontsrecommended \
     collection-langjapanese \
     lastpage \
     titlesec \
-    multirow
+    multirow \
+    ; exit 0
 
 COPY entrypoint.sh /entrypoint.sh
 COPY mystyle.sty /mystyle.sty
@@ -34,6 +33,8 @@ RUN rm -rf ~/* \
     && chmod +x /entrypoint.sh
 
 USER user
+
+WORKDIR /home/user
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "doc" ]
