@@ -16,8 +16,10 @@
 \renewcommand{\headrulewidth}{0pt}
 
 % 式番号
-\usepackage{amsmath}
-\numberwithin{equation}{section}
+\counterwithin{equation}{section}
+
+% 式番号を元に戻す
+%\counterwithout{equation}{section}
 
 % Section Font Size
 \usepackage{titlesec}
