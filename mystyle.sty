@@ -77,3 +77,13 @@
         \label{#3}
     \end{figure}
 }
+
+\renewcommand{\refname}{}
+\newenvironment{Refs}{
+    \begin{thebibliography}{99}
+}{
+    \end{thebibliography}
+}
+\newcommand{\RefItem}[2]{
+    \bibitem{#1} #2
+}
