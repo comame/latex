@@ -4,6 +4,7 @@
 \usepackage{multirow}
 \usepackage{color}
 \usepackage{amsmath}
+\usepackage{url}
 
 % 余白
 \usepackage[top=20truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
@@ -46,6 +47,9 @@
 \newcommand{\U}[1]{
     \mathrm{#1}
 }
+\newcommand{\RefItem}[2]{
+    \bibitem{#1} #2
+}
 \newcommand{\Todo}[1]{
     \PackageWarning{Todo}{Detection #1}
     {\color{red} (TODO #1)}
@@ -78,12 +82,13 @@
     \end{figure}
 }
 
-\renewcommand{\refname}{}
+% \begin{Refs}
+%     \RefItem{label}{reference}
+% \end{Refs}
 \newenvironment{Refs}{
     \begin{thebibliography}{99}
+    \renewcommand{\refname}{}
 }{
     \end{thebibliography}
 }
-\newcommand{\RefItem}[2]{
-    \bibitem{#1} #2
-}
+
