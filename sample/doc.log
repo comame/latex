@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p3.9.0-u1.27-210218-2.6 (utf8.uptex) (TeX Live 2021) (preloaded format=uplatex 2021.4.13)  1 OCT 2021 02:24
+This is e-upTeX, Version 3.141592653-p3.9.0-u1.27-210218-2.6 (utf8.uptex) (TeX Live 2021) (preloaded format=uplatex 2021.4.13)  1 OCT 2021 04:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -120,6 +120,10 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 (/usr/local/texlive/2021/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
@@ -296,12 +300,12 @@ File: img/trp.png Graphic file (type bmp)
 AED: lastpage setting LastPage
 [3] (./doc.aux) ) 
 Here is how much of TeX's memory you used:
- 2808 strings out of 480951
- 39104 string characters out of 5907226
- 353617 words of memory out of 5000000
- 20358 multiletter control sequences out of 15000+600000
- 410730 words of font info for 63 fonts, out of 8000000 for 9000
+ 2888 strings out of 480951
+ 40085 string characters out of 5907226
+ 354720 words of memory out of 5000000
+ 20433 multiletter control sequences out of 15000+600000
+ 410899 words of font info for 64 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 83i,11n,88p,451b,296s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,11n,88p,451b,311s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on doc.dvi (3 pages, 4200 bytes).
+Output written on doc.dvi (3 pages, 4368 bytes).
