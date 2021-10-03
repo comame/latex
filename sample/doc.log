@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p3.9.0-u1.27-210218-2.6 (utf8.uptex) (TeX Live 2021) (preloaded format=uplatex 2021.4.13)  1 OCT 2021 13:16
+This is e-upTeX, Version 3.141592653-p3.9.0-u1.27-210218-2.6 (utf8.uptex) (TeX Live 2021) (preloaded format=uplatex 2021.4.13)  3 OCT 2021 13:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -268,15 +268,30 @@ LaTeX Font Info:    ... okay on input line 5.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 5.
-LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 8.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 10.53629pt on input line 7.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 10.53629pt on input line 7.
+LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10.95> not available
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 7.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 8.
-LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 8.
+(Font)              scaled to size 10.53629pt on input line 7.
+LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10.95> not available
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 7.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 8.
-(./doc.toc
+(Font)              scaled to size 10.53629pt on input line 7.
+[1
+
+]
+LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 13.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 13.
+LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 13.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 13.
+ (./doc.toc
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 7.69775pt on input line 2.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
@@ -285,27 +300,27 @@ LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 \tf@toc=\write3
 \openout3 = `doc.toc'.
 
- [1
+ [2
 
 ]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 16.62714pt on input line 11.
+(Font)              scaled to size 16.62714pt on input line 16.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 16.62714pt on input line 11.
+(Font)              scaled to size 16.62714pt on input line 16.
 File: img/trp.png Graphic file (type bmp)
 <img/trp.png>
- [2
+ [3
 
 ] 
 AED: lastpage setting LastPage
-[3] (./doc.aux) ) 
+[4] (./doc.aux) ) 
 Here is how much of TeX's memory you used:
- 2888 strings out of 480951
- 40085 string characters out of 5907226
- 354720 words of memory out of 5000000
- 20433 multiletter control sequences out of 15000+600000
- 410899 words of font info for 64 fonts, out of 8000000 for 9000
+ 2897 strings out of 480951
+ 40224 string characters out of 5907226
+ 354716 words of memory out of 5000000
+ 20441 multiletter control sequences out of 15000+600000
+ 412081 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 83i,11n,88p,451b,311s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,11n,88p,451b,309s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on doc.dvi (3 pages, 4368 bytes).
+Output written on doc.dvi (4 pages, 4784 bytes).
