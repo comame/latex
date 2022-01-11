@@ -2,7 +2,7 @@
 
 FILENAME=$1
 
-export PATH=$PATH:/usr/local/texlive/$(date +%Y)/bin/x86_64-linuxmusl
+export PATH=$PATH:$(dirname $(find /usr/local/texlive/ -name "tlmgr"))
 
 cp -R ~/* /mystyle.sty /tmp/
 cd /tmp

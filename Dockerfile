@@ -16,7 +16,7 @@ RUN printf "%s\n" \
         > texlive.profile
 RUN $(find ./ -name "install-tl*" -type d)/install-tl -profile ~/texlive.profile ; exit 0
 
-RUN /usr/local/texlive/$(date +%Y)/bin/x86_64-linuxmusl/tlmgr install \
+RUN $(find /usr/local/texlive/ -name "tlmgr") install \
     collection-latexrecommended \
     collection-fontsrecommended \
     collection-langjapanese \
