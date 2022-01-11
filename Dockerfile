@@ -25,12 +25,15 @@ RUN $(find /usr/local/texlive/ -name "tlmgr") install \
     multirow \
     ; exit 0
 
+FROM alpine
+
+COPY --from=0 /usr/local/texlive /usr/local/texlive
+
 COPY entrypoint.sh /entrypoint.sh
 COPY mystyle.sty /mystyle.sty
 
-RUN rm -rf ~/* \
-    && adduser -D user \
-    && chmod +x /entrypoint.sh
+RUN adduser -D user && \
+    chmod +x /entrypoint.sh
 
 USER user
 
