@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p3.9.0-u1.27-210218-2.6 (utf8.uptex) (TeX Live 2021) (preloaded format=uplatex 2022.1.11)  11 JAN 2022 17:51
+This is e-upTeX, Version 3.141592653-p3.9.0-u1.27-210218-2.6 (utf8.uptex) (TeX Live 2021) (preloaded format=uplatex 2022.1.11)  18 JAN 2022 08:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -222,7 +222,11 @@ File: l3backend-dvips.def 2021-12-14 L3 backend support: dvips
 \g__pdf_backend_link_int=\count276
 \g__pdf_backend_link_sf_int=\count277
 )
-(./doc.aux)
+(./doc.aux
+
+LaTeX Warning: Label `table-label' multiply defined.
+
+)
 \openout1 = `doc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
@@ -325,16 +329,22 @@ LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 ]
 File: img/trp.png Graphic file (type bmp)
 <img/trp.png>
- 
+File: img/trp.png Graphic file (type bmp)
+<img/trp.png>
+ [2] 
 AED: lastpage setting LastPage
-[2] (./doc.aux) ) 
+[3] (./doc.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3330 strings out of 480299
- 51193 string characters out of 5897032
- 371753 words of memory out of 5000000
- 21534 multiletter control sequences out of 15000+600000
+ 3334 strings out of 480299
+ 51238 string characters out of 5897032
+ 371898 words of memory out of 5000000
+ 21538 multiletter control sequences out of 15000+600000
  410586 words of font info for 68 fonts, out of 8000000 for 9000
  19 hyphenation exceptions out of 8191
- 70i,12n,76p,470b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,11n,76p,470b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on doc.dvi (4 pages, 4556 bytes).
+Output written on doc.dvi (5 pages, 5368 bytes).

@@ -84,10 +84,19 @@
     \end{tabular}
     \end{table}
 }
+\newenvironment{Table*}[1]{
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{#1}
+}{
+    \end{tabular}
+    \end{table}
+}
 
 % \Figure{filename}{caption}{label}{width}
+% \Figure{filename}{width}
 \usepackage[dvipdfmx]{graphicx}
-\newcommand{\Figure}[4]{
+\newcommand{\Figure@unstarred}[4]{
     \begin{figure}[H]
         \centering
         \includegraphics[width=#4]{#1}
@@ -95,6 +104,13 @@
         \label{#3}
     \end{figure}
 }
+\newcommand{\Figure@starred}[2]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#2]{#1}
+    \end{figure}
+}
+\newcommand{\Figure}{\@ifstar{\Figure@starred}{\Figure@unstarred}}
 
 % \begin{Refs}
 %     \RefItem{label}{reference}

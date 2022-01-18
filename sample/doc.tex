@@ -28,8 +28,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 表\ref{table-label}を参照。図\ref{image-label}を参照。式\eqref{expr}を参照。インライン数式 $ 1 + 1 = 2 $。
 
-\addtocounter{table}{-1} % これでカウンターをデクリメント
-
 \begin{equation}
     \label{expr}
     x^2 + 2x + 4 = 0
@@ -69,6 +67,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     \hline
 \end{Table}
 
+\begin{Table*}{ccc}
+    \hline \hline
+    Left & Center & Right \\
+    \hline
+    1 & 2 & 3 \\
+    1 & 2 & 3 \\
+    \multicolumn{2}{c}{multi} & 3 \\
+    \hline
+\end{Table*}
+
 \begin{equation}
     x^2 + 2x + 4 = 0
 \end{equation}
@@ -78,6 +86,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 \end{equation}
 
 \Figure{img/trp.png}{image-name}{image-label}{10cm}
+\Figure*{img/trp.png}{10cm}
+
+\addtocounter{table}{-1} % これでカウンターをデクリメント
 
 文献を参照する \cite{refLabel}。
 
