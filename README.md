@@ -35,3 +35,7 @@ $ docker run -v $(pwd):/home/user comameito/latex filename
 $ ls
 filename.tex filename.pdf filename.log
 ```
+
+## Troubleshooting
+
+See [docs/troubleshooting.md](docs/troubleshooting.md)
