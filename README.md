@@ -4,7 +4,11 @@
 
 ### インストール
 
-1. `bin/latex` を PATH に追加する
+```
+$ sudo curl -sSf -o /usr/local/bin/latex https://raw.githubusercontent.com/comame/latex/main/bin/latex
+
+$ sudo chmod 755 /usr/local/bin/latex
+```
 
 ## 使い方
 

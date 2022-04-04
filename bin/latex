@@ -86,7 +86,7 @@ else
 fi
 
 if [ ! -e "$FILENAME.tex" ]; then
-    echo "latex: file not found" 1>&2
+    echo "latex: file $FILENAME.tex not found in this directory" 1>&2
     exit 1
 fi
 
