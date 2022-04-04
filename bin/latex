@@ -1,14 +1,24 @@
-#!/usr/bin/bash
+#!/bin/sh
 
 watchFile() {
-    eval ${@:2}
-    last=`openssl sha256 -r $1 | awk '{print $1}'`
+    WATCHFILE_FILENAME=$1
+    shift
+
+    WATCHFILE_COMMAND=""
+    while [ $# -gt 0 ]
+    do
+        WATCHFILE_COMMAND="$WATCHFILE_COMMAND $1"
+        shift
+    done
+
+    eval $WATCHFILE_COMMAND
+    WATCHFILE_LAST=`openssl sha256 -r $WATCHFILE_FILENAME | awk '{print $1}'`
     while true; do
-        sleep 0.5
-        current=`openssl sha256 -r $1 | awk '{print $1}'`
-        if [ "$last" != "$current" ]; then
-            eval ${@:2}
-            last=$current
+        sleep 0.1
+        WATCHFILE_CURRENT=`openssl sha256 -r $WATCHFILE_FILENAME | awk '{print $1}'`
+        if [ "$WATCHFILE_LAST" != "$WATCHFILE_CURRENT" ]; then
+            eval $WATCHFILE_COMMAND
+            WATCHFILE_LAST=$WATCHFILE_CURRENT
         fi
     done
 }
