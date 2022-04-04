@@ -38,7 +38,7 @@ printHelp() {
 
 set -e
 
-### Handle parameters and options
+### Handle options and arguments
 
 OPTIONS=$(getopt -n latex -o wh -l watch,help -- "$@")
 eval set -- $OPTIONS
