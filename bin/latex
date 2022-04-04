@@ -43,16 +43,16 @@ set -e
 OPTIONS=$(getopt -n latex -o wh -l watch,help -- "$@")
 eval set -- $OPTIONS
 
-OPT_WATCH=0
-OPT_HELP=0
+OPT_IS_WATCH=false
+OPT_IS_HELP=false
 
 while [ $# -gt 0 ]
 do
     case $1 in
-        -w) OPT_WATCH=1;;
-        --watch) OPT_WATCH=1;;
-        -h) OPT_HELP=1;;
-        --help) OPT_HELP=1;;
+        -w) OPT_IS_WATCH=true;;
+        --watch) OPT_IS_WATCH=true;;
+        -h) OPT_IS_HELP=true;;
+        --help) OPT_IS_HELP=true;;
         --) shift; break;
     esac
     shift
@@ -69,7 +69,7 @@ done
 
 ### Main
 
-if [ $OPT_HELP -ne 0 ]; then
+if "${OPT_IS_HELP}"; then
     printHelp
     exit 0
 fi
@@ -95,10 +95,10 @@ if [ ! -e "$FILENAME.tex" ]; then
     exit 1
 fi
 
-if [ $OPT_WATCH -eq 0 ]; then
-    COMMAND="$ENTRYPOINT $FILENAME"
-else
+if "${OPT_IS_WATCH}"; then
     COMMAND="watchFile $FILENAME.tex $ENTRYPOINT $FILENAME"
+else
+    COMMAND="$ENTRYPOINT $FILENAME"
 fi
 
 eval $COMMAND
