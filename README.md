@@ -1,14 +1,26 @@
-## Usage
+## 使い方
+
+### `bin/latex` を使う
+
+事前に `bin/latex` を PATH に追加する。
+
+```
+latex [-w] [<filename>]
+
+<filename> は拡張子を含まない .tex ファイルのファイル名
+
+Options:
+  -w, --watch    ファイルの更新時に再コンパイルする
+```
+
+### Docker イメージを直接使う
 
 ```
 $ ls
-your-filename.tex
+filename.tex
 
-$ docker run -v $(pwd):/home/user comameito/latex your-filename
+$ docker run -v $(pwd):/home/user comameito/latex filename
 
 $ ls
-your-filename.tex your-filename.pdf your-filename.log
+filename.tex filename.pdf filename.log
 ```
-
-- Mount the directory containing `your-filename.tex` to container `/home/user`.
-- Pass filename (without extension) as argument. When not specified, will be `doc`.

@@ -1,0 +1,45 @@
+#!/usr/bin/bash
+
+buildLatex() {
+    watchFile() {
+        eval ${@:2}
+        last=`openssl sha256 -r $1 | awk '{print $1}'`
+        while true; do
+            sleep 0.5
+            current=`openssl sha256 -r $1 | awk '{print $1}'`
+            if [ "$last" != "$current" ]; then
+                eval ${@:2}
+                last=$current
+            fi
+        done
+    }
+
+    is_watch=0
+
+    if [ "$1" = "-w" ] || [ "$1" = "--watch" ]; then
+        is_watch=1
+    fi
+
+    entrypoint="docker run --rm -v $(pwd):/home/user comameito/latex"
+    filename="doc"
+
+    if [ $is_watch -ne 0 ] && [ $# -gt 1 ]; then
+        filename=${@:$#}
+    elif [ $is_watch -eq 0 ] && [ $# -gt 0 ]; then
+        filename=${@:$#}
+    fi
+
+    command=""
+
+    if [ $is_watch -eq 0 ]; then
+        command="$entrypoint $filename"
+    else
+        command="watchFile $filename.tex $entrypoint $filename"
+    fi
+
+    eval $command
+
+    unset watchFile
+}
+
+buildLatex $@
