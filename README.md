@@ -1,8 +1,15 @@
+### 依存関係
+
+- docker
+- bash
+
+### インストール
+
+1. `bin/latex` を PATH に追加する
+
 ## 使い方
 
-### `bin/latex` を使う
-
-事前に `bin/latex` を PATH に追加する。
+### `latex` CLI を使う
 
 ```
 latex [-w] [<filename>]
