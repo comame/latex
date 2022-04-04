@@ -13,27 +13,72 @@ watchFile() {
     done
 }
 
-is_watch=0
+printHelp() {
+    printf "%s\n" \
+        "" \
+        "latex [OPTIONS] [<FILENAME>]" \
+        "" \
+        "<FILENAME> は拡張子を含まない .tex ファイルのファイル名" \
+        "" \
+        "Options:" \
+        "  -w, --watch    ファイルの更新時に再コンパイルする" \
+        "  -h, --help     ヘルプを表示する" \
+        ""
+}
 
-if [ "$1" = "-w" ] || [ "$1" = "--watch" ]; then
-    is_watch=1
+set -e
+
+### Handle parameters and options
+
+OPTIONS=$(getopt -n latex -o wh -l watch,help -- "$@")
+eval set -- $OPTIONS
+
+OPT_WATCH=0
+OPT_HELP=0
+
+while [ $# -gt 0 ]
+do
+    case $1 in
+        -w) OPT_WATCH=1;;
+        --watch) OPT_WATCH=1;;
+        -h) OPT_HELP=1;;
+        --help) OPT_HELP=1;;
+        --) shift; break;
+    esac
+    shift
+done
+
+ARG_FILENAME=""
+
+while [ $# -gt 0 ]
+do
+    ARG_FILENAME=$1
+    break;
+done
+
+
+### Main
+
+if [ $OPT_HELP -ne 0 ]; then
+    printHelp
+    exit 0
 fi
 
-entrypoint="docker run --rm -v $(pwd):/home/user comameito/latex"
-filename="doc"
+ENTRYPOINT="docker run --rm -v $(pwd):/home/user comameito/latex"
+FILENAME="doc"
 
-if [ $is_watch -ne 0 ] && [ $# -gt 1 ]; then
-    filename=${@:$#}
-elif [ $is_watch -eq 0 ] && [ $# -gt 0 ]; then
-    filename=${@:$#}
-fi
+COMMAND=""
 
-command=""
-
-if [ $is_watch -eq 0 ]; then
-    command="$entrypoint $filename"
+if [ "$ARG_FILENAME" = "" ]; then
+    FILENAME="doc"
 else
-    command="watchFile $filename.tex $entrypoint $filename"
+    FILENAME=$ARG_FILENAME
 fi
 
-eval $command
+if [ $OPT_WATCH -eq 0 ]; then
+    COMMAND="$ENTRYPOINT $FILENAME"
+else
+    COMMAND="watchFile $FILENAME.tex $ENTRYPOINT $FILENAME"
+fi
+
+eval $COMMAND

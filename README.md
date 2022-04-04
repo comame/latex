@@ -12,12 +12,13 @@
 ### `latex` CLI を使う
 
 ```
-latex [-w] [<filename>]
+latex [OPTIONS] [<FILENAME>]
 
-<filename> は拡張子を含まない .tex ファイルのファイル名
+<FILENAME> は拡張子を含まない .tex ファイルのファイル名
 
 Options:
   -w, --watch    ファイルの更新時に再コンパイルする
+  -h, --help     ヘルプを表示する
 ```
 
 ### Docker イメージを直接使う
