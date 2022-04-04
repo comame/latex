@@ -2,21 +2,23 @@ FROM alpine
 
 WORKDIR /root
 
+ARG mirror="http://ftp.naist.jp/pub/CTAN/systems/texlive/tlnet/"
+
 RUN apk update && apk add \
     curl \
     tar \
     perl \
     xz
-RUN curl https://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz -o tex-live.tar.gz \
+RUN curl ${mirror}/install-tl-unx.tar.gz -o tex-live.tar.gz \
     && tar xzf tex-live.tar.gz
 RUN printf "%s\n" \
         "selected_scheme scheme-basic" \
         "tlpdbopt_install_docfiles 0" \
         "tlpdbopt_install_srcfiles 0" \
         > texlive.profile
-RUN $(find ./ -name "install-tl*" -type d)/install-tl -profile ~/texlive.profile ; exit 0
+RUN $(find ./ -name "install-tl*" -type d)/install-tl -profile ~/texlive.profile -repository ${mirror}; exit 0
 
-RUN $(find /usr/local/texlive/ -name "tlmgr") install \
+RUN $(find /usr/local/texlive/ -name "tlmgr") -repository ${mirror} install \
     collection-latexrecommended \
     collection-fontsrecommended \
     collection-langjapanese \
