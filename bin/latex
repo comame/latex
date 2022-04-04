@@ -75,6 +75,11 @@ else
     FILENAME=$ARG_FILENAME
 fi
 
+if [ ! -e "$FILENAME.tex" ]; then
+    echo "latex: file not found" 1>&2
+    exit 1
+fi
+
 if [ $OPT_WATCH -eq 0 ]; then
     COMMAND="$ENTRYPOINT $FILENAME"
 else
