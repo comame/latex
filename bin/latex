@@ -28,11 +28,11 @@ printHelp() {
         "" \
         "latex [OPTIONS] [<FILENAME>]" \
         "" \
-        "<FILENAME> は拡張子を含まない .tex ファイルのファイル名" \
+        "<FILENAME> is the name of the \`.tex\` file without extension, such as \"article\" for \"article.tex\"." \
         "" \
         "Options:" \
-        "  -w, --watch    ファイルの更新時に再コンパイルする" \
-        "  -h, --help     ヘルプを表示する" \
+        "  -w, --watch    Watch for file changes." \
+        "  -h, --help     Display help." \
         ""
 }
 
@@ -83,6 +83,11 @@ if [ "$ARG_FILENAME" = "" ]; then
     FILENAME="doc"
 else
     FILENAME=$ARG_FILENAME
+fi
+
+if echo "$FILENAME" | grep -q "/"; then
+    echo "latex: <FILENAME> must not be path" 1>&2
+    exit 1
 fi
 
 if [ ! -e "$FILENAME.tex" ]; then

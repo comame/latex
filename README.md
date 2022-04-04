@@ -1,8 +1,8 @@
-### 依存関係
+### Dependencies
 
-- docker
+- Docker
 
-### インストール
+### Installing `latex` CLI
 
 ```
 $ sudo curl -sSf -o /usr/local/bin/latex https://raw.githubusercontent.com/comame/latex/main/bin/latex
@@ -10,21 +10,21 @@ $ sudo curl -sSf -o /usr/local/bin/latex https://raw.githubusercontent.com/comam
 $ sudo chmod 755 /usr/local/bin/latex
 ```
 
-## 使い方
+## Usage
 
-### `latex` CLI を使う
+### `latex` CLI
 
 ```
 latex [OPTIONS] [<FILENAME>]
 
-<FILENAME> は拡張子を含まない .tex ファイルのファイル名
+<FILENAME> is the name of the `.tex` file without extension, such as "article" for "article.tex".
 
 Options:
-  -w, --watch    ファイルの更新時に再コンパイルする
-  -h, --help     ヘルプを表示する
+  -w, --watch    Watch for file changes.
+  -h, --help     Display help.
 ```
 
-### Docker イメージを直接使う
+### Use Docker image directory
 
 ```
 $ ls
