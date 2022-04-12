@@ -33,6 +33,7 @@ printHelp() {
         "Options:" \
         "  -w, --watch                  Watch for file changes." \
         "      --style <STYLE_FILE>     Override mystyle.sty." \
+        "      --show-style             Show default mystyle.sty." \
         "  -h, --help                   Display help." \
         ""
 }
@@ -41,12 +42,13 @@ set -e
 
 ### Handle options and arguments
 
-OPTIONS=$(getopt -n latex -o wh -l watch,help,style: -- "$@")
+OPTIONS=$(getopt -n latex -o wh -l watch,help,style:,show-style -- "$@")
 eval set -- $OPTIONS
 
 OPT_IS_WATCH=false
 OPT_IS_HELP=false
 OPT_CUSTOM_STYLE=false
+OPT_SHOW_STYLE=false
 
 OPT_VAR_CUSTOM_FILE=""
 
@@ -60,6 +62,7 @@ do
         -h) OPT_IS_HELP=true;;
         --help) OPT_IS_HELP=true;;
         --style) OPT_CUSTOM_STYLE=true; OPT_VAR_CUSTOM_FILE=$2;;
+        --show-style) OPT_SHOW_STYLE=true;;
         --) shift; break;
     esac
     shift
@@ -76,6 +79,11 @@ done
 
 if "${OPT_IS_HELP}"; then
     printHelp
+    exit 0
+fi
+
+if "${OPT_SHOW_STYLE}"; then
+    curl -sSf https://raw.githubusercontent.com/comame/latex/main/mystyle.sty | less
     exit 0
 fi
 

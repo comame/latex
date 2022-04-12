@@ -22,6 +22,7 @@ latex [OPTIONS] [<FILENAME>]
 Options:
   -w, --watch                  Watch for file changes.
       --style <STYLE_FILE>     Override mystyle.sty.
+      --show-style             Show default mystyle.sty.
   -h, --help                   Display help.
 ```
 
