@@ -23,6 +23,7 @@ Options:
   -w, --watch                  Watch for file changes.
       --style <STYLE_FILE>     Override mystyle.sty.
       --show-style             Show default mystyle.sty.
+      --show-sample            Show sample LaTeX source.
   -h, --help                   Display help.
 ```
 
