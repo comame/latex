@@ -31,8 +31,9 @@ printHelp() {
         "<FILENAME> is the name of the \`.tex\` file without extension, such as \"article\" for \"article.tex\"." \
         "" \
         "Options:" \
-        "  -w, --watch    Watch for file changes." \
-        "  -h, --help     Display help." \
+        "  -w, --watch                  Watch for file changes." \
+        "      --style <STYLE_FILE>     Override mystyle.sty." \
+        "  -h, --help                   Display help." \
         ""
 }
 
@@ -40,11 +41,16 @@ set -e
 
 ### Handle options and arguments
 
-OPTIONS=$(getopt -n latex -o wh -l watch,help -- "$@")
+OPTIONS=$(getopt -n latex -o wh -l watch,help,style: -- "$@")
 eval set -- $OPTIONS
 
 OPT_IS_WATCH=false
 OPT_IS_HELP=false
+OPT_CUSTOM_STYLE=false
+
+OPT_VAR_CUSTOM_FILE=""
+
+ARG_FILENAME=""
 
 while [ $# -gt 0 ]
 do
@@ -53,12 +59,11 @@ do
         --watch) OPT_IS_WATCH=true;;
         -h) OPT_IS_HELP=true;;
         --help) OPT_IS_HELP=true;;
+        --style) OPT_CUSTOM_STYLE=true; OPT_VAR_CUSTOM_FILE=$2;;
         --) shift; break;
     esac
     shift
 done
-
-ARG_FILENAME=""
 
 while [ $# -gt 0 ]
 do
@@ -74,10 +79,7 @@ if "${OPT_IS_HELP}"; then
     exit 0
 fi
 
-ENTRYPOINT="docker run --rm -v $(pwd):/home/user --name latex-cli comameito/latex"
 FILENAME="doc"
-
-COMMAND=""
 
 if [ "$ARG_FILENAME" = "" ]; then
     FILENAME="doc"
@@ -90,15 +92,34 @@ if echo "$FILENAME" | grep -q "/"; then
     exit 1
 fi
 
+if "${OPT_CUSTOM_STYLE}" && ! echo "$OPT_VAR_CUSTOM_FILE" | grep -q "^/"; then
+    echo "latex: <STYLE_FILE> must be absolute path" 1>&2
+    exit 1
+fi
+
+if "${OPT_CUSTOM_STYLE}" && ! echo "$OPT_VAR_CUSTOM_FILE" | grep -q "\.sty$"; then
+    echo "latex: <STYLE_FILE> must be .sty file." 1>&2
+    exit 1
+fi
+
+if "${OPT_CUSTOM_STYLE}" && [ ! -e "$OPT_VAR_CUSTOM_FILE" ]; then
+    echo "latex: file $OPT_VAR_CUSTOM_FILE not found." 1>&2
+    exit 1
+fi
+
 if [ ! -e "$FILENAME.tex" ]; then
     echo "latex: file $FILENAME.tex not found in this directory" 1>&2
     exit 1
 fi
 
-if "${OPT_IS_WATCH}"; then
-    COMMAND="watchFile $FILENAME.tex $ENTRYPOINT $FILENAME"
-else
-    COMMAND="$ENTRYPOINT $FILENAME"
+DOCKER_RUN_OPTIONS="--rm -v $(pwd):/home/user --name latex-cli"
+
+if "${OPT_CUSTOM_STYLE}"; then
+    DOCKER_RUN_OPTIONS="$DOCKER_RUN_OPTIONS -v $OPT_VAR_CUSTOM_FILE:/mystyle.sty"
 fi
 
-eval $COMMAND
+if "${OPT_IS_WATCH}"; then
+    eval "watchFile $FILENAME.tex docker run $DOCKER_RUN_OPTIONS comameito/latex $FILENAME"
+else
+    eval "docker run $DOCKER_RUN_OPTIONS comameito/latex $FILENAME"
+fi

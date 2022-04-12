@@ -20,8 +20,9 @@ latex [OPTIONS] [<FILENAME>]
 <FILENAME> is the name of the `.tex` file without extension, such as "article" for "article.tex".
 
 Options:
-  -w, --watch    Watch for file changes.
-  -h, --help     Display help.
+  -w, --watch                  Watch for file changes.
+      --style <STYLE_FILE>     Override mystyle.sty.
+  -h, --help                   Display help.
 ```
 
 ### Use Docker image directory
