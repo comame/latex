@@ -35,6 +35,7 @@ printHelp() {
         "      --style <STYLE_FILE>     Override mystyle.sty." \
         "      --show-style             Show default mystyle.sty." \
         "      --show-sample            Show sample LaTeX source." \
+        "      --image <DOCKER_IMAGE>   Specify custom Docker image." \
         "  -h, --help                   Display help." \
         ""
 }
@@ -43,7 +44,7 @@ set -e
 
 ### Handle options and arguments
 
-OPTIONS=$(getopt -n latex -o wh -l watch,help,style:,show-style,show-sample -- "$@")
+OPTIONS=$(getopt -n latex -o wh -l watch,help,style:,show-style,show-sample,image: -- "$@")
 eval set -- $OPTIONS
 
 OPT_IS_WATCH=false
@@ -51,8 +52,10 @@ OPT_IS_HELP=false
 OPT_CUSTOM_STYLE=false
 OPT_SHOW_STYLE=false
 OPT_SHOW_SAMPLE=false
+OPT_OVERRIDE_IMAGE=false
 
 OPT_VAR_CUSTOM_FILE=""
+OPT_VAR_OVERRIDE_IMAGE="comameito/latex"
 
 ARG_FILENAME=""
 
@@ -63,9 +66,10 @@ do
         --watch) OPT_IS_WATCH=true;;
         -h) OPT_IS_HELP=true;;
         --help) OPT_IS_HELP=true;;
-        --style) OPT_CUSTOM_STYLE=true; OPT_VAR_CUSTOM_FILE=$2;;
+        --style) OPT_CUSTOM_STYLE=true; OPT_VAR_CUSTOM_FILE=$2; shift;;
         --show-style) OPT_SHOW_STYLE=true;;
         --show-sample) OPT_SHOW_SAMPLE=true;;
+        --image) OPT_OVERRIDE_IMAGE=true; OPT_VAR_OVERRIDE_IMAGE=$2; shift;;
         --) shift; break;
     esac
     shift
@@ -135,7 +139,7 @@ if "${OPT_CUSTOM_STYLE}"; then
 fi
 
 if "${OPT_IS_WATCH}"; then
-    eval "watchFile $FILENAME.tex docker run $DOCKER_RUN_OPTIONS comameito/latex $FILENAME"
+    eval "watchFile $FILENAME.tex docker run $DOCKER_RUN_OPTIONS $OPT_VAR_OVERRIDE_IMAGE $FILENAME"
 else
-    eval "docker run $DOCKER_RUN_OPTIONS comameito/latex $FILENAME"
+    eval "docker run $DOCKER_RUN_OPTIONS $OPT_VAR_OVERRIDE_IMAGE $FILENAME"
 fi

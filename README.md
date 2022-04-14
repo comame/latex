@@ -24,6 +24,7 @@ Options:
       --style <STYLE_FILE>     Override mystyle.sty.
       --show-style             Show default mystyle.sty.
       --show-sample            Show sample LaTeX source.
+      --image <DOCKER_IMAGE>   Specify custom Docker image.
   -h, --help                   Display help.
 ```
 
