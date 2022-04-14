@@ -5,6 +5,8 @@
 \usepackage{color}
 \usepackage{amsmath}
 \usepackage{url}
+\usepackage{xcolor}
+\usepackage{listings}
 
 % 余白
 \usepackage[top=20truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
@@ -67,6 +69,9 @@
 \newcommand{\Todo}[1]{
     \PackageWarning{Todo}{Detection #1}
     {\color{red} (TODO #1)}
+}
+\newcommand{\Code}[1]{
+    {\ttfamily `#1`}
 }
 
 % \begin{Table}{l|c|r}{caption}{label}
