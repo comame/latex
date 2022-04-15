@@ -158,7 +158,7 @@ if "${OPT_CUSTOM_STYLE}"; then
 fi
 
 if "${OPT_IS_WATCH}"; then
-    echo "watchFile $FILENAME.tex docker run $DOCKER_RUN_OPTIONS $OPT_VAR_OVERRIDE_IMAGE $FILENAME"
+    eval "watchFile $FILENAME.tex docker run $DOCKER_RUN_OPTIONS $OPT_VAR_OVERRIDE_IMAGE $FILENAME"
 else
-    echo "docker run $DOCKER_RUN_OPTIONS $OPT_VAR_OVERRIDE_IMAGE $FILENAME"
+    eval "docker run $DOCKER_RUN_OPTIONS $OPT_VAR_OVERRIDE_IMAGE $FILENAME"
 fi
