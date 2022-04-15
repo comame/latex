@@ -25,6 +25,7 @@ Options:
       --show-style             Show default mystyle.sty.
       --show-sample            Show sample LaTeX source.
       --image <DOCKER_IMAGE>   Specify custom Docker image.
+      --update                 Update docker image and CLI.
   -h, --help                   Display help.
 ```
 
