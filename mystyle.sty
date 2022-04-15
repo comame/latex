@@ -7,6 +7,9 @@
 \usepackage{url}
 \usepackage{xcolor}
 \usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{sourcecodepro}
 
 % 余白
 \usepackage[top=20truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
@@ -29,6 +32,17 @@
 \titleformat*{\section}{\normalsize\bfseries}
 \titleformat*{\subsection}{\normalsize\bfseries}
 \titleformat*{\subsubsection}{\normalsize\bfseries}
+
+% コードブロックのスタイル
+\lstset{
+    basicstyle=\ttfamily\small,
+    showstringspaces=false,
+    frame={tb},
+    xrightmargin=0zw,
+    xleftmargin=2zw,
+    columns=fixed,
+    basewidth=0.5em,
+}
 
 % 摘要
 % \begin{abstract}
@@ -71,7 +85,7 @@
     {\color{red} (TODO #1)}
 }
 \newcommand{\Code}[1]{
-    {\ttfamily `#1`}
+    {\ttfamily\small #1}
 }
 
 % \begin{Table}{l|c|r}{caption}{label}

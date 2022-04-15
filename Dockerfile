@@ -2,7 +2,7 @@ FROM alpine
 
 WORKDIR /root
 
-ARG mirror="http://ftp.naist.jp/pub/CTAN/systems/texlive/tlnet/"
+ARG mirror="http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet/"
 
 RUN apk update && apk add \
     curl \
@@ -25,6 +25,8 @@ RUN $(find /usr/local/texlive/ -name "tlmgr") -repository ${mirror} install \
     lastpage \
     titlesec \
     multirow \
+    sourcecodepro \
+    ly1 \
     ; exit 0
 
 FROM alpine
