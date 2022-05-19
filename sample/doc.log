@@ -1,11 +1,11 @@
-This is e-upTeX, Version 3.141592653-p4.0.0-u1.28-220214-2.6 (utf8.uptex) (TeX Live 2022) (preloaded format=uplatex 2022.4.15)  15 APR 2022 02:03
+This is e-upTeX, Version 3.141592653-p4.0.0-u1.28-220214-2.6 (utf8.uptex) (TeX Live 2022) (preloaded format=uplatex 2022.5.19)  19 MAY 2022 05:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **doc
 (./doc.tex
 pLaTeX2e <2021-11-15u04> (based on LaTeX2e <2021-11-15> patch level 1)
-L3 programming layer <2022-04-10>
+L3 programming layer <2022-05-04>
 (/usr/local/texlive/2022/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 Document Class: jsarticle 2021/06/28 jsclasses (okumura, texjporg)
 \jsc@mpt=\dimen154
@@ -371,7 +371,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@dimlist=\toks30
 )
 (/usr/local/texlive/2022/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
+Package: fancyhdr 2022/05/18 v4.0.3 Extensive control of page headers and foote
 rs
 \f@nch@headwidth=\skip55
 \f@nch@O@elh=\skip56
@@ -398,6 +398,8 @@ Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \titlewidthlast=\dimen185
 \titlewidthfirst=\dimen186
 )
+\scaledtablebox=\box75
+
 (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -413,17 +415,17 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 Package graphics Info: Driver file: dvipdfmx.def on input line 107.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
-File: dvipdfmx.def 2022/04/12 v5.0k Graphics/color driver for dvipdfmx
+File: dvipdfmx.def 2022/04/16 v5.0l Graphics/color driver for dvipdfmx
 ))
 \Gin@req@height=\dimen187
 \Gin@req@width=\dimen188
 ))
 (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
-File: l3backend-dvips.def 2022-04-10 L3 backend support: dvips
-\l__pdf_internal_box=\box75
+File: l3backend-dvips.def 2022-04-20 L3 backend support: dvips
+\l__pdf_internal_box=\box76
 \g__pdf_backend_object_int=\count285
-\l__pdf_backend_content_box=\box76
-\l__pdf_backend_model_box=\box77
+\l__pdf_backend_content_box=\box77
+\l__pdf_backend_model_box=\box78
 \g__pdf_backend_annotation_int=\count286
 \g__pdf_backend_link_int=\count287
 \g__pdf_backend_link_sf_int=\count288
@@ -507,21 +509,19 @@ LaTeX Font Info:    Trying to load font information for T1+cmss on input line 8
 .
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [0
-
-]
+)
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 15.
+(Font)              scaled to size 9.24683pt on input line 12.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 15.
+(Font)              scaled to size 9.24683pt on input line 12.
 LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 15.
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 12.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 15.
+(Font)              scaled to size 9.24683pt on input line 12.
 LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 15.
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 12.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 15.
+(Font)              scaled to size 9.24683pt on input line 12.
  (./doc.toc
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 6.47278pt on input line 2.
@@ -536,9 +536,9 @@ LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 19.
+(Font)              scaled to size 13.31541pt on input line 17.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 19.
+(Font)              scaled to size 13.31541pt on input line 17.
  [1
 
 ]
@@ -546,7 +546,6 @@ File: img/trp.png Graphic file (type bmp)
 <img/trp.png>
 File: img/trp.png Graphic file (type bmp)
 <img/trp.png>
- [2]
 LaTeX Font Info:    Trying to load font information for T1+SourceCodePro-TLF on
  input line 93.
 
@@ -561,14 +560,14 @@ LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 93.
  
 AED: lastpage setting LastPage
-[3] (./doc.aux) ) 
+[2] (./doc.aux) ) 
 Here is how much of TeX's memory you used:
- 6332 strings out of 480180
- 94694 string characters out of 5892613
- 404097 words of memory out of 5000000
- 24586 multiletter control sequences out of 15000+600000
+ 6328 strings out of 480242
+ 94674 string characters out of 5893797
+ 404953 words of memory out of 5000000
+ 24520 multiletter control sequences out of 15000+600000
  479959 words of font info for 71 fonts, out of 8000000 for 9000
  19 hyphenation exceptions out of 8191
  70i,11n,79p,470b,1148s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on doc.dvi (5 pages, 6488 bytes).
+Output written on doc.dvi (3 pages, 5828 bytes).

@@ -87,6 +87,11 @@
 \newcommand{\Code}[1]{
     {\ttfamily\small #1}
 }
+\newcommand{\Matrix}[1]{
+    \begin{pmatrix}
+        #1
+    \end{pmatrix}
+}
 
 % \begin{Table}{l|c|r}{caption}{label}
 %    item && item
@@ -103,12 +108,43 @@
     \end{tabular}
     \end{table}
 }
+
 \newenvironment{Table*}[1]{
     \begin{table}[H]
     \centering
     \begin{tabular}{#1}
 }{
     \end{tabular}
+    \end{table}
+}
+
+\newsavebox{\scaledtablebox}
+\newcommand{\scaledtablefactor}{1}
+\newenvironment{ScaledTable}[4]{
+    \renewcommand{\scaledtablefactor}{#1}
+    \begin{table}[H]
+    \centering
+    \caption{#3}
+    \label{#4}
+    \begin{lrbox}{\scaledtablebox}
+    \begin{tabular}{#2}
+}{
+    \end{tabular}
+    \end{lrbox}
+    \scalebox{\scaledtablefactor}{\usebox{\scaledtablebox}}
+    \end{table}
+}
+
+\newenvironment{ScaledTable*}[2]{
+    \renewcommand{\scaledtablefactor}{#1}
+    \begin{table}[H]
+    \centering
+    \begin{lrbox}{\scaledtablebox}
+    \begin{tabular}{#2}
+}{
+    \end{tabular}
+    \end{lrbox}
+    \scalebox{\scaledtablefactor}{\usebox{\scaledtablebox}}
     \end{table}
 }
 
