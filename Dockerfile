@@ -1,14 +1,14 @@
-FROM alpine
+FROM ubuntu
 
 WORKDIR /root
 
 ARG mirror="http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet/"
 
-RUN apk update && apk add \
+RUN apt update && apt upgrade -y && apt install -y \
     curl \
     tar \
     perl \
-    xz
+    libfontconfig
 RUN curl ${mirror}/install-tl-unx.tar.gz -o tex-live.tar.gz \
     && tar xzf tex-live.tar.gz
 RUN printf "%s\n" \
@@ -27,20 +27,21 @@ RUN $(find /usr/local/texlive/ -name "tlmgr") -repository ${mirror} install \
     multirow \
     sourcecodepro \
     ly1 \
+    newtx \
+    xstring \
+    fontaxes \
     ; exit 0
 
-FROM alpine
-
-COPY --from=0 /usr/local/texlive /usr/local/texlive
+COPY msmincho.ttc /usr/local/texlive/texmf-local/fonts/truetype/msmincho.ttc
+RUN $(find /usr/local/texlive/ -name "mktexlsr" | head -n 1)
 
 COPY entrypoint.sh /entrypoint.sh
 COPY mystyle.sty /mystyle.sty
 
-RUN adduser -D user && \
-    chmod +x /entrypoint.sh
+RUN useradd -m user
+RUN chmod +x /entrypoint.sh
 
 USER user
-
 WORKDIR /home/user
 
 ENTRYPOINT [ "/entrypoint.sh" ]
