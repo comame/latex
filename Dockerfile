@@ -33,6 +33,7 @@ RUN $(find /usr/local/texlive/ -name "tlmgr") -repository ${mirror} install \
     ; exit 0
 
 COPY msmincho.ttc /usr/local/texlive/texmf-local/fonts/truetype/msmincho.ttc
+COPY msgothic.ttc /usr/local/texlive/texmf-local/fonts/truetype/msgothic.ttc
 RUN $(find /usr/local/texlive/ -name "mktexlsr" | head -n 1)
 
 COPY entrypoint.sh /entrypoint.sh
