@@ -11,7 +11,14 @@
 \usepackage[T1]{fontenc}
 \usepackage{sourcecodepro}
 \usepackage{newtxtext,newtxmath}
+
+% フォント埋め込み
 \AtBeginDvi{\special{pdf:mapfile uptex-ms.map}}
+
+% section を MS明朝 にするためのゴリ押し
+\usepackage[noalphabet]{pxchfon}
+\usepackage[deluxe]{otf}
+\setgothicfont[0]{msmincho.ttc}
 
 % 余白
 \usepackage[top=20truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
@@ -58,6 +65,17 @@
     \begin{center}
         {\Large #1}
     \end{center}
+}
+\newcommand{\StyledTitle}[1]{
+    \hrule height 2pt
+    \kern 1pt
+    \hrule height 1pt
+
+    \Title{#1}
+
+    \hrule height 1pt
+    \kern 1pt
+    \hrule height 2pt
 }
 \newcommand{\Center}[1]{
     \begin{center}
